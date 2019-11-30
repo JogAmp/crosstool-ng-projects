@@ -1,5 +1,8 @@
 #! /bin/bash
 
+RELEASE=buster
+ARCH=arm64
+
 DOWNLOAD=1
 
 TDIR=`pwd`
@@ -33,6 +36,7 @@ do
     if [ $DOWNLOAD -eq 1 ] ; then
         cd $TDIR/packs
         echo "searching for $i"
+        # apt-get -t $RELEASE -a $ARCH download $i
         apt-get download $i
         cd $TDIR
     fi
@@ -49,8 +53,8 @@ done
 
 # merge all usr/
 mkdir -p usr/lib
-cp -a sysroot/lib/aarch64-linux-gnu/* usr/lib/
-cp -a sysroot/usr/lib/aarch64-linux-gnu/* usr/lib/
+cp -a sysroot/lib/arm-linux-gnueabihf/* usr/lib/
+cp -a sysroot/usr/lib/arm-linux-gnueabihf/* usr/lib/
 
 mkdir -p usr/include
 cp -a sysroot/usr/include/* usr/include/
@@ -58,11 +62,11 @@ cp -a sysroot/usr/include/* usr/include/
 mkdir -p usr/share
 cp -a sysroot/usr/share/* usr/share/
 
-mkdir -p jre/lib/aarch64
-cp -a sysroot/usr/lib/jvm/java-11-openjdk-arm64/lib/libjava.so jre/lib/aarch64/
-cp -a sysroot/usr/lib/jvm/java-11-openjdk-arm64/lib/libjawt.so jre/lib/aarch64/
-cp -a sysroot/usr/lib/jvm/java-11-openjdk-arm64/lib/libawt*.so jre/lib/aarch64/
-cp -a sysroot/usr/lib/jvm/java-11-openjdk-arm64/lib/server jre/lib/aarch64/
+mkdir -p jre/lib/arm
+cp -a sysroot/usr/lib/jvm/java-11-openjdk-armhf/lib/libjava.so jre/lib/arm/
+cp -a sysroot/usr/lib/jvm/java-11-openjdk-armhf/lib/libjawt.so jre/lib/arm/
+cp -a sysroot/usr/lib/jvm/java-11-openjdk-armhf/lib/libawt*.so jre/lib/arm/
+cp -a sysroot/usr/lib/jvm/java-11-openjdk-armhf/lib/server     jre/lib/arm/
 
 rm -rf sysroot
 
