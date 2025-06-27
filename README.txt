@@ -1,23 +1,28 @@
 
-http://crosstool-ng.org/
+https://crosstool-ng.github.io/
+https://github.com/crosstool-ng/crosstool-ng
 
 +++
 
-Distribution Compatibility Notes (Debian 10 Buster):
-    C library       : glibc-2.28
-    Binutils        : binutils-2.31.1
-    Compiler        : gcc-8.3.0; static libstdc++
-    Linux           : linux-4.20.8 (Debian 10: 4.19)
+Distribution Compatibility Notes (Debian 11 Bullseye):
+    C library       : glibc-2.31
+    Binutils        : binutils-2.35.1
+    Compiler        : gcc-12.4.0; static libstdc++
+    Linux           : linux-5.10.233 (Debian 11: 5.10)
 
-glibc-2.28 allows compatibility with Debian >= 10
+glibc-2.31 allows compatibility with Debian >= 11
 
 +++
 
-0) Install crosstool-ng 1.24.0 for building crosstools
+0) Install crosstool-ng 1.27.0 for building crosstools
 
  apt-get install help2man python3-dev
 
- cd crosstool-ng-1.24.0
+ git clone https://github.com/crosstool-ng/crosstool-ng
+ cd crosstool-ng
+ git checkout --track -b b_1.27.0 crosstool-ng-1.27.0
+ ./bootstrap
+
  ./configure --prefix=/usr/local
  make
  sudo make install
@@ -43,13 +48,13 @@ glibc-2.28 allows compatibility with Debian >= 10
     Toolchain       : Sysroot, 'unknown' Tuple's vendor, 
 
     Languages       : C,C++
-    OS              : linux-4.20.8; Check Headers, build libs
-    Binutils        : binutils-2.31.1
-    Compiler        : gcc-8.3.0; static libstdc++
-    C library       : glibc-2.28
-    Debug tools     : duma-2_5_15 gdb-8.2.1 ltrace-0.7.3 strace-4.26
-    Companion libs  : expat-2.2.6 gettext-0.19.8.1 gmp-6.1.2 isl-0.20 libelf-0.8.13 libiconv-1.15 mpc-1.1.0 mpfr-4.0.2 ncurses-6.1
-    Companion tools : automake-1.16.1
+    OS              : linux-5.10.233; Check Headers, build libs
+    Binutils        : binutils-2.35.1
+    C library       : glibc-2.31
+    Compiler        : gcc-12.4.0; static libstdc++
+    Debug tools     : duma-2_5_21 gdb-10.2 ltrace-0.7.3 strace-6.13
+    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.23 libiconv-1.15 mpc-1.3.1 mpfr-4.2.1 ncurses-6.2 zlib-1.2.13
+    Companion tools : automake-1.16.5
 
     ct-ng build
 
@@ -59,13 +64,13 @@ glibc-2.28 allows compatibility with Debian >= 10
     
     ct-ng aarch64-unknown-linux-gnu
     Languages       : C,C++
-    OS              : linux-4.20.8
-    Binutils        : binutils-2.31.1
-    Compiler        : gcc-8.3.0; static libstdc++
-    C library       : glibc-2.28
-    Debug tools     : gdb-8.2.1
-    Companion libs  : expat-2.2.6 gettext-0.19.8.1 gmp-6.1.2 isl-0.20 libiconv-1.15 mpc-1.1.0 mpfr-4.0.2 ncurses-6.1 zlib-1.2.11
-    Companion tools : automake-1.16.1
+    OS              : linux-5.10.233
+    Binutils        : binutils-2.35.1
+    C library       : glibc-2.31
+    Compiler        : gcc-12.4.0; static libstdc++
+    Debug tools     : gdb-10.2
+    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.23 libiconv-1.15 mpc-1.3.1 mpfr-4.2.1 ncurses-6.2 zlib-1.2.13
+    Companion tools : automake-1.16.5
 
     ct-ng build
 
