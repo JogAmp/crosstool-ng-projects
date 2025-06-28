@@ -48,12 +48,13 @@ glibc-2.31 allows compatibility with Debian >= 11
     Toolchain       : Sysroot, 'unknown' Tuple's vendor, 
 
     Languages       : C,C++
-    OS              : linux-5.10.233; Check Headers, build libs
+    OS              : linux-5.10.233
     Binutils        : binutils-2.35.1
+    Compiler        : gcc-12.4.0
+    Linkers         :
     C library       : glibc-2.31
-    Compiler        : gcc-12.4.0; static libstdc++
     Debug tools     : duma-2_5_21 gdb-10.2 ltrace-0.7.3 strace-6.13
-    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.23 libiconv-1.15 mpc-1.3.1 mpfr-4.2.1 ncurses-6.2 zlib-1.2.13
+    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.23 libelf-0.8.13 libiconv-1.15 mpc-1.3.1 mpfr-4.2.1 ncurses-6.2 zlib-1.2.13 zstd-1.5.6
     Companion tools : automake-1.16.5
 
     ct-ng build
@@ -66,10 +67,11 @@ glibc-2.31 allows compatibility with Debian >= 11
     Languages       : C,C++
     OS              : linux-5.10.233
     Binutils        : binutils-2.35.1
+    Compiler        : gcc-12.4.0
+    Linkers         :
     C library       : glibc-2.31
-    Compiler        : gcc-12.4.0; static libstdc++
     Debug tools     : gdb-10.2
-    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.23 libiconv-1.15 mpc-1.3.1 mpfr-4.2.1 ncurses-6.2 zlib-1.2.13
+    Companion libs  : expat-2.5.0 gettext-0.21 gmp-6.2.1 isl-0.23 libiconv-1.15 mpc-1.3.1 mpfr-4.2.1 ncurses-6.2 zlib-1.2.13 zstd-1.5.6
     Companion tools : automake-1.16.5
 
     ct-ng build
