@@ -35,7 +35,7 @@ mkdir -p sysroot
 #  nx-x11proto-core-dev nx-x11proto-input-dev nx-x11proto-kb-dev nx-x11proto-render-dev nx-x11proto-xext-dev \
 
 PACKAGES_DEFAULT="\
-  libudev1 libudev-dev \
+  libdbus-1-3 libdbus-1-dev libudev1 libudev-dev \
   libpulse0 libpulse-dev libpulse-mainloop-glib0 \
   libsndio7.0 libsndio-dev \
   libsndfile1 libsndfile1-dev \
@@ -57,7 +57,7 @@ PACKAGES_DEFAULT="\
   "
 
 PACKAGES_BACKPORT="\
-  libpipewire-0.3-0 libpipewire-0.3-dev"
+  libspa-0.2-modules libspa-0.2-dev libpipewire-0.3-0 libpipewire-0.3-dev"
 
 if [ $DOWNLOAD -eq 1 ] ; then
     cd $TDIR/packs
@@ -100,6 +100,9 @@ done
 mkdir -p usr/lib
 cp -a sysroot/lib/arm-linux-gnueabihf/* usr/lib/
 cp -a sysroot/usr/lib/arm-linux-gnueabihf/* usr/lib/
+cd $TDIR/usr/lib
+ln -s . arm-linux-gnueabihf
+cd $TDIR
 
 mkdir -p usr/include
 cp -a sysroot/usr/include/* usr/include/
